@@ -8,7 +8,6 @@ const Spotify = require("node-spotify-api");
 const keys = require("./keys");
 
 const spotify = new Spotify(keys.spotify);
-const client = new Twitter(keys.twitter);
 
 //----------------------------------------------------------//
 //Functions
@@ -56,26 +55,31 @@ const getArtistNames = function(artist) {
 //---------------------------------------//
 //Twitter Tweet retrieval
 //---------------------------------------//
-const tweetRetrieval = function() {
-  const params = {
-    screen_name: "cnn"
+
+var tweetRetrieval = function() {
+  var client = new Twitter(keys.twitter);
+
+  var params = {
+    screen_name: "corded_twigsley"
   };
-  client.get("statuses/user_timeline", params, function(res, err, tweets) {
+  client.get("statuses/user_timeline", params, function(err, tweets, res) {
     console.log("working!");
     if (!err) {
-      for (let i = 0; i < tweets.length; i++) {
+      for (var i = 0; i < tweets.length; i++) {
         console.log(tweets[i].created_at);
         console.log("");
         console.log(tweets[i].text);
       }
+    } else {
+      console.log("Error: " + err);
     }
   });
 };
 //----------------------------------------------//
 //Determing which command is executed
 //----------------------------------------------//
-let choose = function(caseType, functionType) {
-  switch (caseType) {
+let choose = function(caseName, functionType) {
+  switch (caseName) {
     case "spotify-this-song":
       findSong(functionType);
       break;
