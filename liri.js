@@ -46,14 +46,54 @@ const findSong = function(songName) {
   );
 };
 
+//-------//
+//Captures artist names for preceding function
+//------//
+const getArtistNames = function(artist) {
+  return artist.name;
+};
+
 //---------------------------------------//
 //Twitter Tweet retrieval
 //---------------------------------------//
 const tweetRetrieval = function() {
   const params = {
-    screen_name: "corded_twigsley"
+    screen_name: "cnn"
   };
-  client.get("status/user_timeline", params, function(res, err, tweets) {
-    if (!err)
-  })
-}
+  client.get("statuses/user_timeline", params, function(res, err, tweets) {
+    console.log("working!");
+    if (!err) {
+      for (let i = 0; i < tweets.length; i++) {
+        console.log(tweets[i].created_at);
+        console.log("");
+        console.log(tweets[i].text);
+      }
+    }
+  });
+};
+//----------------------------------------------//
+//Determing which command is executed
+//----------------------------------------------//
+let choose = function(caseType, functionType) {
+  switch (caseType) {
+    case "spotify-this-song":
+      findSong(functionType);
+      break;
+    case "my-tweets":
+      tweetRetrieval();
+      break;
+    default:
+    console.log("LIRI is currently undeveloped and unable to understand the command given.");
+  }
+};
+//--------------------------------------------------------//
+//Function to capture user input and runs the preceding function according to command
+//--------------------------------------------------------//
+const run = function(argOne, argTwo) {
+  choose(argOne, argTwo);
+};
+
+
+
+run(process.argv[2], process.argv[3]);
+
