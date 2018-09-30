@@ -63,12 +63,11 @@ var tweetRetrieval = function() {
     screen_name: "corded_twigsley"
   };
   client.get("statuses/user_timeline", params, function(err, tweets, res) {
-    console.log("working!");
     if (!err) {
       for (var i = 0; i < tweets.length; i++) {
-        console.log(tweets[i].created_at);
-        console.log("");
+        console.log("----------------------------");
         console.log(tweets[i].text);
+        console.log(tweets[i].created_at);
       }
     } else {
       console.log("Error: " + err);
