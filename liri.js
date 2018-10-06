@@ -107,7 +107,7 @@ const tweetRetrieval = function () {
       }
 
       logCommands(data);
-      
+
     } else {
       console.log("Error: " + err);
     }
@@ -139,6 +139,20 @@ let movieRetrieval = function (movieName) {
       console.log("Language: " + jsonData.Language);
       console.log("Plot: " + jsonData.Plot);
       console.log("Actors: " + jsonData.Actors);
+
+      const data = {
+        "Title:": jsonData.Title,
+        "Year:": jsonData.Year,
+        "Rated:": jsonData.Rated,
+        "IMDB Rating:": jsonData.imdbRating,
+        "Country:": jsonData.Country,
+        "Language:": jsonData.Language,
+        "Plot:": jsonData.Plot,
+        "Actors:": jsonData.Actors,
+        "Rotten Tomatoes Rating:": jsonData.Ratings[1].Value
+      };
+
+      logCommands(data);
     }
   });
 };
