@@ -115,13 +115,13 @@ const doWhatItSays = function() {
     const dataArray = data.split(",");
 
     if (dataArray.length === 2) {
-      pick(dataArray[0], dataArray[1]);
+      choose(dataArray[0], dataArray[1]);
     }
     else if (dataArray.length === 1) {
-      pick[dataArray[0]];
+      choose(dataArray[0]);
     }
   });
-;}
+};
 
 //----------------------------------------------//
 //Determing which command is executed
