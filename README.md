@@ -29,7 +29,7 @@ The `movie-this` input queries the OMDB API, which searches the given movie name
 
 ![movie-this input](https://i.imgur.com/07aybeo.png)
 
-The `do-what-it-says` input imports and reads a file * random.txt * and does takes its' arguments from whatever is in the file; its' default is to take the movie retrieval function with an argument of "Evil".
+The `do-what-it-says` input imports and reads a file *random.txt* and does takes its' arguments from whatever is in the file; its' default is to take the movie retrieval function with an argument of "Evil".
 
 ![do-what-it-says input](https://i.imgur.com/8F5E1VR.png)
 
