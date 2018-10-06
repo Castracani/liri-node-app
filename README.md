@@ -14,7 +14,7 @@ This CLI-driven app captures (two) inputs put in by the user, and responds appro
 As of right now (Octobe 5, 2018) the application accepts four valid inputs:
 
 ```
-my-tweets`, `spotify-this-song`, `movie-this`, and `do-what-it-says`
+`my-tweets`, `spotify-this-song`, `movie-this`, and `do-what-it-says`
 ````
 
 Giving the `my-tweets` input queries the hardcoded Twitter screen name, and relays the Tweet along with the date and time that the Tweet was made.
@@ -24,6 +24,10 @@ Giving the `my-tweets` input queries the hardcoded Twitter screen name, and rela
 Giving the `spotify-this-song` input queries the Spotify API, which searches for the given song along with the artist(s) names, a preview of the song if applicable, and the album that the song came on.
 
 ![spotify-this-song input](https://i.imgur.com/mbryFFD.png)
+
+The `movie-this` input queries the OMDB API, which searches the given movie name and returns the movies title, year and country it was created, both IMDB and Rotten Tomatoes scores, the films language, a short summary of the plot, and the high-profile actors.
+
+
 
 Any other command given will prompt the default response.
 
