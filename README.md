@@ -27,7 +27,11 @@ Giving the `spotify-this-song` input queries the Spotify API, which searches for
 
 The `movie-this` input queries the OMDB API, which searches the given movie name and returns the movies title, year and country it was created, both IMDB and Rotten Tomatoes scores, the films language, a short summary of the plot, and the high-profile actors.
 
+![movie-this input](https://i.imgur.com/07aybeo.png)
 
+The `do-what-it-says` input imports and reads a file * random.txt * and does takes its' arguments from whatever is in the file; its' default is to take the movie retrieval function with an argument of "Evil".
+
+![do-what-it-says input](https://i.imgur.com/8F5E1VR.png)
 
 Any other command given will prompt the default response.
 
