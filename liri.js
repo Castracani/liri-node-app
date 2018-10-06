@@ -56,15 +56,15 @@ const getArtistNames = function(artist) {
 //Twitter Tweet retrieval
 //---------------------------------------//
 
-var tweetRetrieval = function() {
-  var client = new Twitter(keys.twitter);
+const tweetRetrieval = function() {
+  const client = new Twitter(keys.twitter);
 
-  var params = {
+  const params = {
     screen_name: "corded_twigsley"
   };
   client.get("statuses/user_timeline", params, function(err, tweets, res) {
     if (!err) {
-      for (var i = 0; i < tweets.length; i++) {
+      for (let i = 0; i < tweets.length; i++) {
         console.log("----------------------------");
         console.log(tweets[i].text);
         console.log(tweets[i].created_at);
@@ -74,6 +74,55 @@ var tweetRetrieval = function() {
     }
   });
 };
+
+//----------------------------------------------//
+//Function for retrieving movie from OMDB
+//----------------------------------------------//
+
+let movieRetrieval = function(movieName) {
+  if (movieName === undefined) {
+    movieName = "Mr Nobody";
+  }
+
+  console.log(movieName);
+
+  let query = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=full&tomatoes=true&apikey=trilogy";
+
+  request(query, function(err, res, body) {
+    if (!err & res.statusCode === 200) {
+      let jsonData = JSON.parse(body);
+
+      console.log("Title: " + jsonData.Title);
+      console.log("Year: " + jsonData.Year);
+      console.log("IMDB Rating: " + jsonData.imdbRating);
+      console.log("Rotten Tomatoes Rating: " + jsonData.Ratings[1].Value);
+      console.log("Country: " + jsonData.Country);
+      console.log("Language: " + jsonData.Language);
+      console.log("Plot: " + jsonData.Plot);
+      console.log("Actors: " + jsonData.Actors);
+    }
+  });
+};
+
+//---------------------------------------//
+//"Do what is says" function
+//---------------------------------------//
+
+const doWhatItSays = function() {
+  fs.readFile("random.txt", "utf8", function(error, data) {
+    console.log(data);
+
+    const dataArray = data.split(",");
+
+    if (dataArray.length === 2) {
+      pick(dataArray[0], dataArray[1]);
+    }
+    else if (dataArray.length === 1) {
+      pick[dataArray[0]];
+    }
+  });
+;}
+
 //----------------------------------------------//
 //Determing which command is executed
 //----------------------------------------------//
@@ -84,6 +133,12 @@ let choose = function(caseName, functionType) {
       break;
     case "my-tweets":
       tweetRetrieval();
+      break;
+    case "movie-this":
+      movieRetrieval(functionType);
+      break;
+    case "do-what-it-says":
+      doWhatItSays();
       break;
     default:
     console.log("LIRI is currently undeveloped and unable to understand the command given.");
