@@ -96,6 +96,18 @@ const tweetRetrieval = function () {
         console.log(tweets[i].text);
         console.log(tweets[i].created_at);
       }
+
+      let data = [];
+
+      for (let i = 0; i < tweets.length; i++) {
+        data.push({
+          created_at: tweets[i].created_at,
+          tweet: tweets[i].text
+        })
+      }
+
+      logCommands(data);
+      
     } else {
       console.log("Error: " + err);
     }
