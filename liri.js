@@ -55,19 +55,19 @@ const findSong = function (songName) {
         console.log("album: " + songs[i].album.name);
         console.log("---------------------------------------");
       }
-      let hits = data.tracks.items;
-      let hitsArray = [];
 
-      for (let i = 0; i < hits.length; i++) {
-        hitsArray.push({
-          "artist(s)": hits[i].artists.map(getArtistNames),
-          "song name": hits[i].name,
-          "preview song": hits[i].preview_url,
-          "album": hits[i].album.name
+      let songsArray = [];
+
+      for (let i = 0; i < songs.length; i++) {
+        songsArray.push({
+          "artist(s)": songs[i].artists.map(getArtistNames),
+          "song name": songs[i].name,
+          "preview song": songs[i].preview_url,
+          "album": songs[i].album.name
         });
       }
-      
-      logCommands(hitsArray);
+
+      logCommands(songsArray);
 
     });
 };
