@@ -143,13 +143,12 @@ let movieRetrieval = function (movieName) {
       const data = {
         "Title:": jsonData.Title,
         "Year:": jsonData.Year,
-        "Rated:": jsonData.Rated,
         "IMDB Rating:": jsonData.imdbRating,
+        "Rotten Tomatoes Rating:": jsonData.Ratings[1].Value,
         "Country:": jsonData.Country,
         "Language:": jsonData.Language,
         "Plot:": jsonData.Plot,
         "Actors:": jsonData.Actors,
-        "Rotten Tomatoes Rating:": jsonData.Ratings[1].Value
       };
 
       logCommands(data);
