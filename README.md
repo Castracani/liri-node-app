@@ -11,7 +11,12 @@ This CLI-driven app captures (two) inputs put in by the user, and responds appro
 * `dotenv` npm package
 
 ### How to Use
-As of right now (September 29, 2018) the application only accepts two valid inputs; `my-tweets` and `spotify-this-song`.
+As of right now (Octobe 5, 2018) the application accepts four valid inputs:
+
+```
+my-tweets`, `spotify-this-song`, `movie-this`, and `do-what-it-says`
+````
+
 Giving the `my-tweets` input queries the hardcoded Twitter screen name, and relays the Tweet along with the date and time that the Tweet was made.
 
 ![my-tweets input](https://i.imgur.com/hmfwwJZ.png)
